@@ -4,11 +4,11 @@ import { pallete } from "../../theme";
 export const Style = styled.div`
   .title {
     font-size: 2.5rem;
-    color: ${pallete.primaryColor};
+    color: ${pallete.whiteColor};
     font-weight: 800;
     padding: 20px 0;
     margin-bottom: 10px;
-    border-bottom: 2px solid ${pallete.darkColor};
+    border-bottom: 2px solid ${pallete.primaryColor};
   }
   .items {
     flex-wrap: wrap;
@@ -18,6 +18,7 @@ export const Style = styled.div`
       padding: 10px 10px 35px;
       border-radius: 8px;
       position: relative;
+      cursor: pointer;
       .item__bg {
         position: absolute;
         z-index: 0;
@@ -26,6 +27,9 @@ export const Style = styled.div`
         width: 100%;
         height: 100%;
         border-radius: 8px;
+        background: ${pallete.blueColor};
+        backdrop-filter: blur(16px);
+        transform: scale(0.6);
         &::before {
           content: "";
           position: absolute;
@@ -37,7 +41,7 @@ export const Style = styled.div`
           background: rgba(255, 255, 255, 0.5);
           backdrop-filter: blur(16px);
           transform: scale(0.6);
-          transition: all 0.08s ease-in-out;
+          transition: all 0.1s ease-in-out;
         }
       }
       .item__poster {
@@ -48,7 +52,7 @@ export const Style = styled.div`
           aspect-ratio: 2/3;
           border-radius: 8px;
           transform: scale(1);
-          transition: all 0.08s ease-in-out;
+          transition: all 0.1s ease-in-out;
         }
         .poster__btn {
           position: absolute;
@@ -56,20 +60,17 @@ export const Style = styled.div`
           left: 50%;
           transform: translate(-50%, -50%);
           opacity: 0;
-          transition: all 0.08s ease-in-out;
-          font-size: 3.6rem;
+          transition: all 0.1s ease-in-out;
+          font-size: 6rem;
           i {
             color: ${pallete.primaryColor};
             border-radius: 50%;
-            border: 2px solid ${pallete.whiteColor};
-            background: ${pallete.blueColor};
-            transition: all 0.08s ease-in-out;
+            background: ${pallete.darkColor};
+            transition: all 0.1s ease-in-out;
           }
           &:hover {
-            font-size: 4.2rem;
-            bottom: 5%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            font-size: 6.5rem;
+            bottom: 2%;
           }
         }
         .item__title {
@@ -86,12 +87,14 @@ export const Style = styled.div`
           color: ${pallete.primaryColor};
           opacity: 0;
           transform: translateY(-50px);
-          transition: all 0.08s ease-in-out;
+          transition: all 0.1s ease-in-out;
         }
       }
       &:hover {
         .item__bg {
+          border: 2px solid ${pallete.primaryColor};
           border-radius: 8px;
+          transform: scale(1);
           &:before {
             border-radius: 8px;
             transform: scale(1);
@@ -99,6 +102,7 @@ export const Style = styled.div`
         }
         .item__poster {
           .img {
+            z-index: 3;
             transform: scale(1);
           }
           .poster__btn {

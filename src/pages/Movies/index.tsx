@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Style } from "./style";
 import useFetch from "../../hooks/useFetch";
+import { Link } from "react-router-dom";
 
 export default function Movies() {
   const [page, setPage] = useState<number>(1);
@@ -30,17 +31,22 @@ export default function Movies() {
           {data?.map((item, index) => {
             return (
               <li
-                className="item flex flex-column align-start justify-start gap-5"
+                className="item flex flex-column align-start justify-start"
                 key={index}
               >
-                <div className="item__bg"></div>
-                <div className="item__poster">
-                  <img className="img" src={item.poster} alt={item.title} />
-                  <div className="poster__btn">
-                    <i className="fa-solid fa-circle-play"></i>
+                <Link
+                  to={"#"}
+                  className="flex flex-column align-start justify-start gap-5"
+                >
+                  <div className="item__bg"></div>
+                  <div className="item__poster">
+                    <img className="img" src={item.poster} alt={item.title} />
+                    <div className="poster__btn">
+                      <i className="fa-solid fa-circle-play"></i>
+                    </div>
+                    <h3 className="item__title">{item.title}</h3>
                   </div>
-                  <h3 className="item__title">{item.title}</h3>
-                </div>
+                </Link>
               </li>
             );
           })}
